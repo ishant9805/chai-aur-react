@@ -12,10 +12,12 @@ function App() {
   // and dont reduce value after 0
   // Assignment 1 Done
 
+  // Sets the error msg null if there isn't any
   const checkNoErr = () => {
     setErr(null)
   }
 
+  // For Adding value
   const addValue = () => {
     // counter += 1
     if (counter < 20) {
@@ -26,6 +28,7 @@ function App() {
     }
   }
 
+  // For subtracting -1
   const reduceValue = () => {
     if (counter > 0) {
       setCounter(counter - 1)
