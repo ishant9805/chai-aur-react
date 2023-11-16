@@ -47,7 +47,6 @@ function App() {
       <button onClick={addValue}>Add +1</button>
       <br />
       <br />
-      {/* samajh gye */}
       <button onClick={reduceValue}>Reduce +1</button>
       <h3>{err}</h3>
     </>
