@@ -44,10 +44,14 @@ function App() {
       <h1>Chai aur React</h1>
       <h2>Counter Value: {counter}</h2>
 
-      <button onClick={addValue}>Add +1</button>
-      <br />
-      <br />
-      <button onClick={reduceValue}>Reduce +1</button>
+      <div className='cont'>
+        <button className='stylish-btn' role='button' onClick={addValue}>
+          <span className='text'>Add +1</span>
+        </button>
+        <button className='stylish-btn' role='button' onClick={reduceValue}>
+          <span className='text'>Reduce -1</span>
+        </button>
+      </div>
       <h3>{err}</h3>
     </>
   )
