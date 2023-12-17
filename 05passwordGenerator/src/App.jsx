@@ -8,6 +8,7 @@ function App() {
   const [pass, setPass] = useState('')
 
   const passRef = useRef(null)
+  const btnRef = useRef(null)
 
   const passGen = useCallback(() => {
     let password = ""
@@ -17,18 +18,21 @@ function App() {
     for (let index = 1; index <= length; index++) {
       password += str.charAt(Math.floor(Math.random() * str.length + 1))
     }
-    console.log(password)
     setPass(password)
   }, [length, numeric, charAllowed, setPass])
 
   const copyToClip = useCallback(() => {
     passRef.current?.select()
     passRef.current?.setSelectionRange(0,32)
+    btnRef.current.style.backgroundColor = "#000"
+    btnRef.current.style.color = "rgb(96, 165, 250)"
     window.navigator.clipboard.writeText(pass)
-  }, [pass])
-
+  }, [pass, btnRef])
+  
   useEffect(() => {
     passGen()
+    btnRef.current.style.backgroundColor = "rgb(96, 165, 250)"
+    btnRef.current.style.color = "#000"
   }, [length, charAllowed, numeric, passGen])
   return (
     <>
@@ -49,11 +53,13 @@ function App() {
               bg-blue-400 
               px-4 py-1 shrink-0 
               text-gray-800'
-            onClick={() => {copyToClip()}}>
+            onClick={() => {copyToClip()}}
+            ref={btnRef}
+          >
             Copy
           </button>
         </div>
-        <div className='flex text-lg gap-x-2'>
+        <div className='flex overflow-auto text-lg gap-x-2'>
           <div className="flex items-center gap-x-1">
             <input 
               type="range"
