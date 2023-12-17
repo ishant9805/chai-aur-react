@@ -72,29 +72,43 @@ function App() {
             />
             <label htmlFor="passLength">Length({length})</label>
           </div>
-          <div className="flex items-center gap-x-1">
-            <input 
-              type="checkbox"
-              defaultChecked={numeric}
-              id="numInput"
-              onChange={() => {
-                setNumeric((prev) => !prev);
-              }}
-              className='w-4 h-4 cursor-pointer'
-            />
-            <label htmlFor="numInput">Numbers</label>
+          <div className="custom-checks flex items-center gap-x-1">
+            <label className='checkbox' htmlFor="numInput">
+              <input 
+                type="checkbox"
+                defaultChecked={numeric}
+                id="numInput"
+                onChange={() => {
+                  setNumeric((prev) => !prev);
+                }}
+                className='w-4 h-4 cursor-pointer checkbox__trigger visuallyhidden'
+              />
+              <span class="checkbox__symbol">
+                <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 14l8 7L24 7"></path>
+                </svg>
+              </span>
+              <p className='checkbox__textwrapper'>Numbers</p>
+            </label>
           </div>
-          <div className="flex items-center gap-x-1">
-            <input 
-              type="checkbox"
-              defaultChecked={charAllowed}
-              id="charInput"
-              onChange={() => {
-                setCharAllowed((prev) => !prev);
-              }}
-              className='w-4 h-4 cursor-pointer'
-            />
-            <label htmlFor="charInput">Special Characters</label>
+          <div className="custom-checks flex items-center gap-x-1">
+            <label className='checkbox' htmlFor="charInput">
+              <input 
+                type="checkbox"
+                defaultChecked={charAllowed}
+                id="charInput"
+                onChange={() => {
+                  setCharAllowed((prev) => !prev);
+                }}
+                className='w-4 h-4 cursor-pointer checkbox__trigger visuallyhidden'
+              />
+              <span class="checkbox__symbol">
+                <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 14l8 7L24 7"></path>
+                </svg>
+              </span>
+              <p className='checkbox__textwrapper'>Special Characters</p>
+            </label>
           </div>
         </div>
       </div>
